@@ -1,1 +1,19 @@
-12345
+как создать репозиторий:
+1.создаем каталог 
+2.git init
+3.git add .
+4.git commit -a -m "innitial"
+5.git remote add origin url
+6.git push --set-upstream origin master
+
+Порядок ежедневной работы:
+1. Проверка обновлений команда git pull (на каждой ветке отдельно)
+2. Проверка состояния команда git status
+3. Создание новой ветки от ветки master. Команда переключения на мастер 
+git checkout master
+Если нужная ветка существует git checkout
+4. Создание новой ветки git checkout -b
+5. Работа в новой ветке...
+6. Сохранение git add
+git commit -a -m 
+7. Отправка изменений git push --set-upstream origin Imya vetki.(далее git push) 

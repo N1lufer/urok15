@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Transform</title>
+<style>
+.container {
+border: 1px solid red;
+position: relative;
+text-align: center;
+margin: 50px;
+padding: 50px;
+min-height: 250px;
+}
+.zoo {
+width: 180px;
+height: 220px;
+position: absolute;
+animation: mouse 10s ease infinite;
+}
+.sign {
+transform: rotate(180deg);
+transition: transform 2s ease;
+}
+@keyframes mouse {
+0% {
+left: 0;
+right: auto;
+}
+50% {
+left: calc(50% - 90px);
+right: auto;
+}
+50% {
+left: auto;
+right: calc(50% - 90px);
+}
+100% {
+left: auto;
+right: 0;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<img class="zoo" src="mylogo.png" alt="pic1">
+<img class="sign" src="whirlpool.png" alt="pic2">
+</div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 как создать репозиторий:
 1.создаем каталог 
 2.git init
@@ -17,3 +18,6 @@ git checkout master
 6. Сохранение git add
 git commit -a -m 
 7. Отправка изменений git push --set-upstream origin Imya vetki.(далее git push) 
+=======
+12345
+

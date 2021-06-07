@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Transform</title>
+<style>
+.container {
+margin: 100px;
+padding: 40px;
+border: 1px solid red;
+text-align: center;
+/*transform: rotate(45deg);*/
+}
+.container img {
+width: 180px;
+height: 220px;
+/*transform: rotate(-90deg) scale(3,1);*/
+/*transform: skew(45deg, 0);*/
+transform: translate(-1000px,-100px);
+transition: transform 40s ease 4s;
+}
+.container img:hover {
+transform: translate(1000px,100px);
+transition: transform 5000ms linear;
+}
+</style>
+</head>
+<body>
+<div class="filter-block__item">
+<label class="filter-block__label">Роль</label>
+<div class="custom-select" data-selectprefix="common_type">
+<span class="fakelink custom-select__opener" data-selectline="" style="min-width: 0px;">Все</span>
+<div class="custom-select__drop" style="min-width: 0px;">
+<button type="button" class="custom-select__link" data-selectline="all">Все</button>
+<button type="button" class="custom-select__link" data-selectline="0">Истец</button>
+<button type="button" class="custom-select__link" data-selectline="1">Ответчик</button>
+<button type="button" class="custom-select__link" data-selectline="2">Третье лицо</button>
+<button type="button" class="custom-select__link" data-selectline="3">Иное лицо</button>
+</div>
+</div>
+</div>
+<div class="container">
+<img src="mylogo.png" alt="pic">
+</div>
+</body>
+</html>

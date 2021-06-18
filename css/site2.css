@@ -4,6 +4,7 @@ body{
 	margin:0;
 	padding:0;
 	font-family: 'Roboto', sans-serif;
+	min-width:320px;
 }
 .container{
 	max-width:1140px;
@@ -14,15 +15,133 @@ h2{
 	font-size:36px;
 	line-height:46px;
 	letter-spacing:0.05em;
+	margin:0 0 32px;
 }
 /*footer*/
-.footer{
+footer{
 	background:#316099;
 	color:#fff;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 26px;
+	letter-spacing: 0.05em;
 }
 .topfooter{
 	padding:90px 0 95px;
-	border-bottom:1px solid #fff;
-	display:flex;
+	border-bottom:1px solid rgba(255,255,255,.4);
 }
-.topfooter .
+.topfooter .container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.footertxt{
+	width:500px;
+}
+footer button{
+	background:#5A98D0;
+	height:60px;
+	width:240px;
+	color:#fff;
+	border:none;
+	font-size:inherit;
+	letter-spacing: 0.05em;
+	cursor:pointer;
+}
+.footertxt>div{
+	opacity:0.6;
+}
+/*ol.container {
+	display:flex;
+	list-style-type:upper-alpha;
+	gap:32px;
+}
+ol.container li{
+	flex:1 1 320 px;
+	padding-left:40px;
+}
+.bottomfooter{
+	color: #FFF;
+	opacity: 0.4;
+	padding:0 0 64px;
+}*/
+.middlefooter .container {
+	display: flex;
+	gap: 160px;
+	padding: 64px 0;
+}
+.middlefooter span {
+	display:block;
+	flex: 1 1 320px;
+	padding: 0 0 0 40px;
+	position: relative;
+}
+.middlefooter span::before {
+	position: absolute;
+	left: 0;
+	top: 0;
+	content: 'T.';
+}
+.middlefooter span:first-child::before {
+	content: 'A.';
+}
+.middlefooter span:last-child::before {
+	content: 'E.';
+}
+.bottomfooter {
+	opacity: 0.4;
+	padding: 0 0 64px;
+}
+/*планшентный вид*/
+@media (max-width:1200px){
+	.container{
+		max-width:800px;
+	}
+	.middlefooter .container {
+	gap: 80px;
+	}
+	.middlefooter span {
+	padding: 0 0 0 25px;
+	}
+	.footertxt{
+		width:400px;
+	}
+	footer button{
+		width:200px;
+		height:40px;
+	}
+	.container{
+		max-width:520px;
+	}
+}
+@media (max-width:860px){
+	.topfooter{
+	padding:50px 0 60px;	
+	}
+	.footertxt{
+		width:340px;
+	}
+	footer button{
+		width:130px;
+		height:30px;
+	}
+	
+	.middlefooter .container{
+		display:block;
+	}
+	.middlefooter span{
+		padding:0 0 24px 60px;
+	}
+	.middlefooter span:last-child{
+		padding:0 0 0 60px;
+	}
+}
+/*мобильный вид*/
+@media(max-width:550px){
+	.container{
+		padding:0 15px;
+	}
+	.middlefooter .container{
+		padding:0 15px;
+	}
+}

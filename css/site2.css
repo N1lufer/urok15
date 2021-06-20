@@ -17,6 +17,79 @@ h2{
 	letter-spacing:0.05em;
 	margin:0 0 32px;
 }
+/*header*/
+.topheader .container{
+	display:flex;
+	padding:37px 0;
+	width:1140px;
+	margin:0 113px;
+	justify-content:space-between;
+}
+.bottomheader{
+	height:249px;
+	background:#3481D7;
+	border-bottom:1px solid #3481D7;
+}
+.bottomheader .container p{
+	color:rgba(255, 255, 255, 0.6);
+	text-align:center;
+	font-size:20px;
+}
+.bottomheader .container {
+	color:#fff;
+	text-align:center;
+	padding:50px 0;
+}
+.phone .number{
+	line-height:16px;
+}
+.phone .number::before{
+	content: "";
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	width: 24px;
+	height: 24px;
+	background-image: url('ic_phone_24px.png');
+}
+main{
+	display:flex;
+}
+.contacts{
+	color:#1F3F68;
+	padding:135px 101px 150px  212px;
+}
+.copacity{
+	opacity:0.6;
+}
+.contacts span{
+	height:26px;
+	vertical-align:middle;
+}
+form{
+	height:686px;
+	width:426px;
+	border:1px solid black;
+	padding:56px;
+	margin:57px 0 0;
+	border-radius: 10px;
+}
+.fname,.fmail{
+	height:72px;
+	width:428px;
+	border-radius: 10px;
+}
+.fmessage{
+	height:144px;
+	width:428px;
+	border-radius: 10px;
+}
+form button{
+	height:72px;
+	width:432px;
+	margin:72px 0 0;
+	border-radius: 10px;
+}
 /*footer*/
 footer{
 	background:#316099;
@@ -93,7 +166,7 @@ ol.container li{
 	padding: 0 0 64px;
 }
 /*планшентный вид*/
-@media (max-width:1200px){
+/*@media (max-width:1200px){
 	.container{
 		max-width:800px;
 	}
@@ -110,11 +183,11 @@ ol.container li{
 		width:200px;
 		height:40px;
 	}
-	.container{
-		max-width:520px;
-	}
 }
 @media (max-width:860px){
+	.container {
+		max-width:520px;
+	}
 	.topfooter{
 	padding:50px 0 60px;	
 	}
@@ -137,11 +210,37 @@ ol.container li{
 	}
 }
 /*мобильный вид*/
-@media(max-width:550px){
+/*@media(max-width:550px){
 	.container{
+		max-width:515px;
 		padding:0 15px;
 	}
 	.middlefooter .container{
+		padding:64px 15px;
+	}
+
+}
+@media(max-width:375px){
+	.container{
+		max-width:345px;
 		padding:0 15px;
 	}
-}
+	.topfooter .container{
+		padding:18px 0 15px;
+		flex-direction:column;
+		text-align:center;
+	}
+	footer button{
+		margin:32px 0 0;
+		width:108px;
+		height:30px;
+	}
+	
+	.middlefooter .container{
+		padding:32px 15px;
+	}
+	.bottomfooter .container{
+		padding:32px 15px;
+		text-align:center;
+	}
+}*/

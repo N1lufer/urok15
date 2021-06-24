@@ -32,6 +32,9 @@ button {
 	height: 50px;
 	cursor: pointer;
 }
+.birthday {
+	background: red;
+}
 .screen {
     position: fixed;
     left: 0;
@@ -73,14 +76,34 @@ button {
 	box-sizing: border-box;
 	border: 1px solid black;
 }
-.modal td:hover {
-	background: green;
-	color: white;
-}
 .modal .holiday {
 	border-color: red;
 	color: red;
 }
 .modal .noourmonth {
 	border-color: transparent;
+}
+.modal .today {
+	background: blue;
+	color: white;
+}
+.modal .birthday {
+	background: red;
+	color: white;
+}
+.modal .workday:hover,
+.modal .holiday:hover {
+	background: green;
+	color: white;
+}
+.modal .header {
+	display: flex;
+	justify-content: space-between;
+}
+.modal .header span {
+	display: block;
+	height: 30px;
+	width: 30px;
+	cursor: pointer;
+	font-size: 30px;
 }

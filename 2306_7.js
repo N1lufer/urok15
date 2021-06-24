@@ -1,6 +1,7 @@
 const MONTHNAMES = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь',];
 const TODAY = new Date();
-//let birthday = null;
+// заменить TODAY на дату из инпута, если она там есть
+let birthday = null;
 function makePopup(my_year, my_month){
     let my_weekday = new Date(my_year, my_month).getDay();
     let month_length = Math.floor((new Date(my_year, my_month + 1) - new Date(my_year, my_month)) / (1000 * 60 * 60 * 24));
@@ -34,7 +35,11 @@ function makePopup(my_year, my_month){
                 if ((y == TODAY.getDate()) && (my_year == TODAY.getFullYear()) && (my_month == TODAY.getMonth())) {
                     x += ' today';
                 }
-// Здесь добавляем пометку своего дня рождения классом 'birthday'
+				
+				/*if 	birthday=null then {
+					
+				}*/
+				//Здесь добавляем пометку своего дня рождения классом 'birthday'
             }
             str += '<td class="' + x + '" data-date="' + z + '">' + y + '</td>';
         }
@@ -65,11 +70,15 @@ function makePopup(my_year, my_month){
     });
     
     $('.holiday, .workday').click(function(){
-        alert(this.dataset.date);
-        
+        let arr = this.dataset.date.split(',');
+        arr[1] = +arr[1] + 1;
+        if (arr[1] < 10) arr[1] = '0' + arr[1];
+        if (arr[2].length < 2) arr[2] = '0' + arr[2];
+        let str = arr[2] + '-' + arr[1] + '-' + arr[0];
+        $('input').val(str);
+        $('.active').removeClass('active');
+        $('.modal').empty();
     });
-    
-    // ДД-ММ-ГГГГ
     
     $('.screen').addClass('active');
 }
@@ -77,15 +86,22 @@ $(function(){
     $('input, .getcalendar').click(function(){
         makePopup(TODAY.getFullYear(),TODAY.getMonth());
     });
-    $('.birthday').click(function(){
-       // спросить у пользователя день его рождения в формате ДД-ММ-ГГГГ
-       // сохранить его в переменную birthday
+    $('button.birthday').click(function(){
+        let ask = prompt("Когда у вас день рождения? Напишите его в формате ДД-ММ-ГГГГ");
+	    let arr_b = ask.split('-');
+		arr_b[1]=+arr_b[1]-1;
+		if (arr_b[1]<10) arr_b[1] = arr_b[1]/10;
+		if (arr_b[0].length>1&arr_b[0]<10) arr_b[0] = arr_b[0]/10;
+		let birthday = arr_b[2]+','+arr_b[1]+','+arr_b[0];
+		console.log(birthday);
+		//$('birthday').
+		// спросить у пользователя день его рождения в формате ДД-ММ-ГГГГ
+       // преобразовать его в Date и сохранить его в переменную birthday
     });
     $('.screen').click(function(e){
         if ($(e.target).hasClass('active')) {
             $('.active').removeClass('active');
+            $('.modal').empty();
         }
     });
 });
-нажав на кнопку вызвать вопрос в ответе др в формате ддммгггг
-найти дату в календаре и отметить ее как др 

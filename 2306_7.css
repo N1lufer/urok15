@@ -39,15 +39,48 @@ button {
     top: 0;
     bottom: 0;
     background: transparent;
+	display: none;
+}
+.active {
+	display: block;
 }
 .modal {
     position: absolute;
     top: 150px;
-    width: 500px;
+    width: 740px;
     left: 50%;
-    margin-left: -250px;
+    margin-left: -391px;
 	padding: 20px;
     text-align: center;
     background: white;
     border: 1px solid black;
+}
+.modal table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+.modal th {
+	height: 50px;
+	width: 100px;
+	box-sizing: border-box;
+	border: none;
+	font-weight: bold;
+}
+.modal td {
+	height: 100px;
+	width: 100px;
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+.modal td:hover {
+	background: green;
+	color: white;
+}
+.modal .holiday {
+	border-color: red;
+	color: red;
+}
+.modal .noourmonth {
+	border-color: transparent;
 }

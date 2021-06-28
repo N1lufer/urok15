@@ -1,7 +1,8 @@
 const MONTHNAMES = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь',];
 const TODAY = new Date();
-// заменить TODAY на дату из инпута, если она там есть
 let birthday = null;
+let choice = null;
+
 function makePopup(my_year, my_month){
     let my_weekday = new Date(my_year, my_month).getDay();
     let month_length = Math.floor((new Date(my_year, my_month + 1) - new Date(my_year, my_month)) / (1000 * 60 * 60 * 24));
@@ -35,11 +36,12 @@ function makePopup(my_year, my_month){
                 if ((y == TODAY.getDate()) && (my_year == TODAY.getFullYear()) && (my_month == TODAY.getMonth())) {
                     x += ' today';
                 }
-				
-				/*if 	birthday=null then {
-					
-				}*/
-				//Здесь добавляем пометку своего дня рождения классом 'birthday'
+                if (birthday) {
+                    if ((y == birthday.getDate()) && (my_month == birthday.getMonth())) {
+                        x += ' birthday';
+                    }
+                }
+                // ЕСЛИ ЕСТЬ ВЫБРАННАЯ ДАТА, ПОМЕЧАЕМ ЕЕ КЛАССОМ selected
             }
             str += '<td class="' + x + '" data-date="' + z + '">' + y + '</td>';
         }
@@ -84,19 +86,23 @@ function makePopup(my_year, my_month){
 }
 $(function(){
     $('input, .getcalendar').click(function(){
-        makePopup(TODAY.getFullYear(),TODAY.getMonth());
+		if($('.input').val()) {
+			
+		} else{
+		   makePopup(TODAY.getFullYear(),TODAY.getMonth());	
+		}
+        // ЕСЛИ В ИНПУТЕ ЕСТЬ ВЫБРАННАЯ ДАТА, СТРОИМ КАЛЕНДАРЬ ОТ НЕЕ, ЕСЛИ НЕТ - ОТ СЕГОДНЯ
     });
     $('button.birthday').click(function(){
-        let ask = prompt("Когда у вас день рождения? Напишите его в формате ДД-ММ-ГГГГ");
-	    let arr_b = ask.split('-');
-		arr_b[1]=+arr_b[1]-1;
-		if (arr_b[1]<10) arr_b[1] = arr_b[1]/10;
-		if (arr_b[0].length>1&arr_b[0]<10) arr_b[0] = arr_b[0]/10;
-		let birthday = arr_b[2]+','+arr_b[1]+','+arr_b[0];
-		console.log(birthday);
-		//$('birthday').
-		// спросить у пользователя день его рождения в формате ДД-ММ-ГГГГ
-       // преобразовать его в Date и сохранить его в переменную birthday
+        let b = prompt('Привет! Когда у тебя день рождения? Введи в формате ДД-ММ-ГГГГ');
+        if (!/\d{2}-\d{2}-\d{4}/.test(b)) {
+            alert('Неправильный формат даты!');
+        } else {
+            let b_year = b.slice(6, 10);
+            let b_month = b.substring(3, 5);
+            let b_date = b.substr(0, 2);
+            birthday = new Date(b_year, b_month - 1, b_date);
+        }
     });
     $('.screen').click(function(e){
         if ($(e.target).hasClass('active')) {
